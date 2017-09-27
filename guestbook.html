@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>Добавление сообщения</title>
+    <script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="scripts/some_script.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div id="feedback">
+    <div class="head">
+        <h2>Гостевая страница</h2>
+    </div>
+<fieldset>
+    <form method="POST" action="index.php" id="form" name="form" enctype="multipart/form-data" >
+    <input type="hidden" name="Id" />
+    <label>Имя пользователя</label>
+        <p> 
+            <input type="text" name="UserName" id="userName" placeholder="Введите никнейм" /> 
+            <span class="validation-text" id="username-error"></span>
+        </p>
+
+    <label>Email</label>
+        <p> 
+            <input type="text" name="Email" id="email" placeholder="Введите email"/>
+            <span class="validation-text" id="email-error" ></span>
+        </p> 
+
+        <img src='captcha.php' />
+        <p>
+            <input type="text" name="Captcha" id="captcha" placeholder="Введите код с картинки" /> 
+            <span class="validation-text" id="captcha-error"></span>
+        </p>
+    <label id="message">Сообщение</label>
+        <p class="message-text"> 
+            <textarea name="Text" id="message-area" rows="5" cols="40"> </textarea> 
+            <span class="validation-text" id="message-error"></span>
+        </p>
+    <input  id="submit" type="submit" name="send" value="Добавить сообщение">
+</form>
+<form method="POST" name="file_upload" action="fileupload.php" enctype="multipart/form-data">
+    <img  class="photo" src="" style="display: none;"/>
+        <input type="file" class="file" name="picture"  style=" position:absolute" />
+        <span class="validation-text" id="file-error"></span>
+     <input  id="add-file" type="submit" name="send_file" value="Добавить файл">
+     <script type="text/javascript">
+        preventDefault();
+        downloadOrImageResize();
+    </script>
+</form>
+</fieldset>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#submit').on('click',function (event) {
+        event = event || window.event;
+        if(!required() || !isCyrillicSymbol() || !isValidEmail() || !isValidCaptcha() ){
+            if (typeof event.preventDefault == "function") {
+                event.preventDefault();
+            } else {
+                event.cancelBubble = true;
+            }
+        } else{
+            $('#form').submit();
+            
+        } 
+    });
+});
+</script>
+</body>
+
+
+</html>
