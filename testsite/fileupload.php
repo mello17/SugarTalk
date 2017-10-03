@@ -16,7 +16,7 @@
 				echo 'Слишком большой размер файла. ';
 				exit();
  			}
-		if (!move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DIRECTIRY_ROOT'] . 
+		if (!move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DIRECTIRY_ROOT'] . $path .
 		 $_FILES['picture']['name']))
 			{
 				echo 'Ошибка при загрузке файла. ';
