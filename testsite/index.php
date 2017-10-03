@@ -5,17 +5,16 @@
 	error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 	include ('guestbookModel.php');
 	$obj = new GuestBook;
-	
 		if($obj->IsValidData())
 		{
 			$obj->AddData();
-			header('Location: http://localhost:8080/testsite/index.php');
+			header('Location: http://localhost:8080/testsite/SugarTalk/testsite/index.php');
 		} 
 
 	
- 	print "<link rel='stylesheet' type='text/css' href='/testsite/css/style.css'>";
-	echo '<script type="text/javascript" src="/testsite/scripts/some_script.js"></script>';
-	echo '<script type="text/javascript" src="/testsite/scripts/jquery-1.10.2.min.js"></script>';
+ 	print "<link rel='stylesheet' type='text/css' href='../testsite/css/style.css'>";
+	echo '<script type="text/javascript" src="../testsite/scripts/some_script.js"></script>';
+	echo '<script type="text/javascript" src="../testsite/scripts/jquery-1.10.2.min.js"></script>';
 	echo '<script  language="javascript">getClick()</script>'; 
 	
 	  	  ?>

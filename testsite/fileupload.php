@@ -19,12 +19,12 @@
 		if (!move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER['DIRECTIRY_ROOT'] . 
 		 $_FILES['picture']['name']))
 			{
-				echo 'ошибка';
+				echo 'Ошибка при загрузке файла. ';
 				exit();
 			}
 		}
 		else{
-			echo 'При загрузке файла произошла ошибка. ';
+			echo 'Неизвестная ошибка при загрузке файла. ';
 			exit();
 		}
 

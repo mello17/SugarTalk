@@ -43,7 +43,7 @@ fieldset{
 }
 #submit{
 	position: absolute;
-	top: 750px;
+	top: 680px;
 	left: 30px;
 }
 .photo{
@@ -57,6 +57,10 @@ fieldset{
 #message-area{
 	position: absolute;
 	top:-40px;
+}
+#message-error{
+	position: absolute;
+	left: 320px;
 }
 #data-table{
 	position: relative;

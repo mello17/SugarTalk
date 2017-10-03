@@ -38,7 +38,7 @@ function getClick(){
             select.addClass('current');
         $.ajax({
            type:"post",
-           url: "/testsite/showData.php",
+           url: "../testsite/showData.php",
            data: {sort : $sort, field : $field},
            error: function(error,jqXHR, textThrown){
             alert("error :"+textThrown);
@@ -87,9 +87,9 @@ function required(){
 	var first = $("#userName").val();
 	var email = $("#email").val();
 	var captcha = $("#captcha").val();
-	var message = $("#message").val();
+	var message = $("#message-area").val();
 	var flag = true;
-	if(first == null || first == "" ){
+	if( first == "" ){
 		$("#username-error").text("Введите поле Имя пользователя");
 		return flag = false;
 	} else
@@ -99,7 +99,7 @@ function required(){
 		flag ? $("#username-error").text("") : 
 			   $("#username-error").text("Ввод кириллицы не допустим ");
 	}
-	 if(email == null || email == "" ){
+	 if( email == "" ){
 		$("#email-error").text("Введите поле Email");
 		return flag = false;
 	} else
@@ -108,24 +108,19 @@ function required(){
 		flag ? $("#email-error").text("") : 
 			   $("#email-error").text("Неправильный ввод email");
 	}
-    if(captcha == null || captcha == "" ){
+    if( captcha == "" ){
 		$("#captcha-error").text("Введите код с картинки");
 		 return flag = false;
 	} else
 	{
 		$("#captcha-error").text("");
-        /*flag = isValidCaptcha();
-        flag ? $("#captcha-error").text("") : 
-               $("#captcha-error").text("Неверный ввод кода ");*/
-		//flag = true;
 	}
-	if(message == null || message == ""){
+	if( message == ""){
 		$("#message-error").text("Введите сообщение");
 		 return flag = false;	
 	} else
     {
         $("#message-error").text("");
-       // flag =true;
     }
 	
 return flag;
