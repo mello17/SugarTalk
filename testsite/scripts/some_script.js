@@ -139,6 +139,9 @@ function isCyrillicSymbol(){
 function downloadOrImageResize(){
 	$('.file').change(function (event) {
         var input = $(this)[0];
+        $("#file-error").text('');
+        $(".photo").attr("src","");
+        $(".photo").hide();
         var fileTracker = new FileReader();
         if (input.files && input.files[0]) {
             if (input.files[0].type.match('(image/jpeg|image/png|image/png)')) {           	
@@ -210,6 +213,7 @@ function preventDefault(){
         var value = $(".file").val();
         if(value==""){
             e.preventDefault();
+            
         }  
     });
     

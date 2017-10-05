@@ -24,11 +24,12 @@
 			}
 		}
 		else{
-			echo 'Неизвестная ошибка при загрузке файла. ';
+			echo 'Неизвестная ошибка при загрузке файла. '. $_FILES['picture']['error'];
 			exit();
 		}
 
-		echo 'Загрузка удачна <a href="' . $path . $_FILES['picture']['name'] . '">Посмотреть</a> ' ;
+		echo 'Загрузка удачна <a href="' . $path . $_FILES['picture']['name'] . '">Посмотреть</a>.
+		Возврат на страницу через 5 сек	 ' ;
 		
 		header("Refresh:5; URL= {$_SERVER['HTTP_REFERER']}");
 		

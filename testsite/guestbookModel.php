@@ -22,48 +22,7 @@
 		return $link;
 	}
 
-	public	function FileUpload()
-	{
-		$path = './files/';
-		$tmp_path = './tmp/';
-		$types = array('image/gif', 'image/png', 'image/jpeg');
-		$max_size = 102400;
-		$name_of_uploaded_file =  basename($_FILES['picture']['name']);
-		$type = $_FILES['picture']['type'];
-		$size = $_FILES['picture']['size'];
-		var_dump($_FILES);
-		if ($_FILES['picture']['size']>0)
-		{
-			
-			if (!in_array($type, $types))
-			{
-				echo 'Ошибка при загрузке файла.Запрещённый тип файла.';
-				return false;
-
-			}
-			if ($max_size > $size && in_array($_FILES['picture']['type'],'text/plain'))
-			{
-				echo 'Слишком большой размер файла';
-				return false;
- 			}
-		if (!@copy($_FILES['picture']['tmp_name'], $path . $_FILES['picture']['name']))
-			{
-				echo 'Ошибка при загрузке файла';
-				return false;
-			}
-			else 
-			{
-				echo 'Загрузка файла завершена <a href="' . $path 
-				. $_FILES['picture']['name'] . '">Посмотреть</a> ' ;
-				return true;
-			}
-
-		}
-		else echo 'Ошибка при загрузке';
-		
-		
-	}
-
+	
 	private	function Clean($value = "") 
 	{
     	$value = trim($value);
@@ -77,8 +36,6 @@
 	public	function AddData()
 	{	
 		require 'connection.php';
-		var_dump(self::FileUpload());
-		self::FileUpload();
 		$link = self::connect($host, $user, $password, $database);
  	 	$userName =self::Clean(htmlentities(mysqli_real_escape_string($link, $_POST['UserName'])));
 	 	$email = self::Clean(htmlentities(mysqli_real_escape_string($link, $_POST['Email'])));
