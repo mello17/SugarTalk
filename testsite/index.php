@@ -8,7 +8,7 @@
 		if($obj->IsValidData())
 		{
 			$obj->AddData();
-			header('Location: http://localhost:8080/testsite/SugarTalk/testsite/index.php');
+			header('Location: http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF']);
 		} 
 
 	
